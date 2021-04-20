@@ -77,6 +77,7 @@ func (u *User) Save() error {
 	if err := u.validate(); err != nil {
 		return err
 	}
+
 	db, err := storm.Open(dbPath)
 	if err != nil {
 		return err
