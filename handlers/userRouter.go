@@ -29,12 +29,14 @@ func UsersRouter(w http.ResponseWriter, r *http.Request) {
 		postError(w, http.StatusNotFound)
 	}
 
-	// id := bson.ObjectIdHex(path)
+	id := bson.ObjectIdHex(path)
 
 	switch r.Method {
 	case http.MethodGet:
+		usersGetOne(w, r, id)
 		return
 	case http.MethodPut:
+		usersPutOne(w, r, id)
 		return
 	case http.MethodPatch:
 		return
